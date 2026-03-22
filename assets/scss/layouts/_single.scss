@@ -1,0 +1,26 @@
+.article-content {
+    .heading-link {
+        color: inherit;
+        text-decoration: none;
+        position: relative;
+        
+        &::before {
+            content: '#';
+            position: absolute;
+            left: -1.2em;
+            color: var(--color-primary);
+            opacity: 0;
+            transition: var(--transition-normal);
+        }
+        
+        &:hover::before {
+            opacity: 1;
+        }
+    }
+    
+    h2, h3, h4, h5, h6 {
+        &:hover .heading-link::before {
+            opacity: 1;
+        }
+    }
+}

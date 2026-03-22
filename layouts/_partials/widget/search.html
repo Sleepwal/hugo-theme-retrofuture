@@ -1,0 +1,10 @@
+<div class="widget search-widget">
+    <h4 class="widget-title">
+        <span class="widget-icon">◈</span>
+        {{ i18n "search" }}
+    </h4>
+    <form action="{{ "search" | relLangURL }}" method="get" class="search-form">
+        <input type="text" name="q" placeholder="{{ i18n `searchPlaceholder` }}" class="search-input" required>
+        <button type="submit" class="search-btn">{{ i18n "search" }}</button>
+    </form>
+</div>

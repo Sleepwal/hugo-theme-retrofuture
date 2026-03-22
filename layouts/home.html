@@ -1,0 +1,20 @@
+{{ define "main" }}
+    <div class="home-header">
+        <h1 class="home-title animate-fade-in">
+            <span class="glitch-text" data-text="{{ .Site.Title }}">{{ .Site.Title }}</span>
+        </h1>
+        {{ with .Site.Params.description }}
+        <p class="home-description animate-fade-in animate-delay-200">{{ . }}</p>
+        {{ end }}
+        <div class="neon-line animate-fade-in animate-delay-300"></div>
+    </div>
+    
+    <div class="article-grid">
+        {{ $paginator := .Paginate .Pages }}
+        {{ range $index, $page := $paginator.Pages }}
+            {{ partial "article-list/default.html" (dict "page" $page "index" $index) }}
+        {{ end }}
+    </div>
+    
+    {{- partial "pagination.html" . -}}
+{{ end }}

@@ -1,0 +1,19 @@
+{{ define "body-class" }}article-page{{ end }}
+
+{{ define "main" }}
+    <div class="article-layout">
+        <article class="main-article animate-fade-in">
+            {{ partial "article/article.html" . }}
+        </article>
+        
+        {{ if and .TableOfContents (gt (len .TableOfContents) 100) }}
+        <aside class="toc-sidebar sticky">
+            {{ partial "article/components/toc.html" . }}
+        </aside>
+        {{ end }}
+    </div>
+    
+    {{ if .Site.Params.article.relatedContent }}
+    {{ partial "widget/related.html" . }}
+    {{ end }}
+{{ end }}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" dir="{{ default `ltr` .Language.LanguageDirection }}">
+<head>
+    {{- partial "head/head.html" . -}}
+    {{- block "head" . -}}{{ end }}
+</head>
+<body class="{{ block `body-class` . }}{{ end }}">
+    <div class="retro-background">
+        <div class="grid-overlay"></div>
+        <div class="scanline-overlay"></div>
+    </div>
+    
+    {{- partial "header/header.html" . -}}
+    
+    <div class="container main-container flex">
+        {{ if not .Params.hideSidebar }}
+        <aside class="left-sidebar sticky">
+            {{ partial "sidebar/left.html" . }}
+        </aside>
+        {{ end }}
+        
+        <main class="main">
+            {{- block "main" . }}{{- end }}
+        </main>
+        
+        {{ if not .Params.hideSidebar }}
+        <aside class="right-sidebar sticky">
+            {{ partial "sidebar/right.html" . }}
+        </aside>
+        {{ end }}
+    </div>
+    
+    {{ partial "footer/footer.html" . }}
+    
+    <script src="{{ "js/main.js" | relURL }}"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{{ define "body-class" }}page-404{{ end }}
+
+{{ define "main" }}
+<div class="error-page animate-fade-in">
+    <div class="error-content">
+        <div class="error-code">
+            <span class="glitch-text" data-text="404">404</span>
+        </div>
+        
+        <h1 class="error-title">{{ i18n "pageNotFound" }}</h1>
+        <p class="error-description">{{ i18n "pageNotFoundDesc" }}</p>
+        
+        <div class="error-actions">
+            <a href="{{ "/" | relLangURL }}" class="btn-primary">
+                <span class="btn-icon">◈</span>
+                {{ i18n "backToHome" }}
+            </a>
+            <a href="{{ "search" | relLangURL }}" class="btn-secondary">
+                <span class="btn-icon">▸</span>
+                {{ i18n "search" }}
+            </a>
+        </div>
+    </div>
+    
+    <div class="error-decoration">
+        <div class="hex-grid">
+            <div class="hex"></div>
+            <div class="hex"></div>
+            <div class="hex"></div>
+            <div class="hex"></div>
+            <div class="hex"></div>
+            <div class="hex"></div>
+        </div>
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,9 @@
+<div class="toc-wrapper">
+    <h4 class="toc-title">
+        <span class="toc-icon">◈</span>
+        {{ i18n "tableOfContents" }}
+    </h4>
+    <nav class="toc-nav">
+        {{ .TableOfContents | safeHTML }}
+    </nav>
+</div>

@@ -1,0 +1,11 @@
+<aside class="sidebar-content">
+    {{ if .Site.Params.features.search }}
+    <div class="sidebar-section">
+        {{ partial "widget/search.html" . }}
+    </div>
+    {{ end }}
+    
+    <div class="sidebar-section">
+        {{ partial "widget/toc.html" . }}
+    </div>
+</aside>

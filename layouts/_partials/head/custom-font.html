@@ -1,0 +1,15 @@
+{{ $displayFont := .Site.Params.fonts.display | default "Orbitron" }}
+{{ $bodyFont := .Site.Params.fonts.body | default "Space Mono" }}
+{{ $codeFont := .Site.Params.fonts.code | default "Share Tech Mono" }}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family={{ $displayFont }}:wght@400;500;600;700;800;900&family={{ $bodyFont }}:wght@400;500;600;700&family={{ $codeFont }}&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --display-font-family: "{{ $displayFont }}", var(--sys-font-family);
+        --base-font-family: "{{ $bodyFont }}", var(--sys-font-family);
+        --code-font-family: "{{ $codeFont }}", monospace;
+    }
+</style>

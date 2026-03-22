@@ -1,0 +1,48 @@
+.list-header {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    margin-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--card-separator-color);
+}
+
+.list-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    @include neon-glow(var(--color-primary), 0.6);
+    
+    .title-icon {
+        animation: neon-pulse 2s ease-in-out infinite;
+    }
+}
+
+.list-description {
+    font-size: 1rem;
+    color: var(--body-text-color-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-md);
+}
+
+.list-count {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-family: var(--code-font-family);
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    background: rgba(0, 255, 247, 0.1);
+    border: 1px solid rgba(0, 255, 247, 0.3);
+    border-radius: var(--border-radius-md);
+    
+    .count-number {
+        font-weight: 700;
+        font-size: 1.1rem;
+    }
+}

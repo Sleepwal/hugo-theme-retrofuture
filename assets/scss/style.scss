@@ -1,0 +1,26 @@
+@import "breakpoints.scss";
+@import "variables.scss";
+@import "mixins.scss";
+@import "grid.scss";
+@import "animations.scss";
+
+@import "partials/base.scss";
+@import "partials/header.scss";
+@import "partials/footer.scss";
+@import "partials/sidebar.scss";
+@import "partials/article.scss";
+@import "partials/card.scss";
+@import "partials/pagination.scss";
+@import "partials/widgets.scss";
+@import "partials/search.scss";
+@import "partials/retro.scss";
+@import "partials/related.scss";
+
+@import "layouts/home.scss";
+@import "layouts/list.scss";
+@import "layouts/single.scss";
+@import "layouts/404.scss";
+
+body {
+    padding-top: var(--header-height);
+}

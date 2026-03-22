@@ -1,0 +1,60 @@
+{{ $page := .page }}
+{{ $index := .index | default 0 }}
+{{ $delay := mul $index 100 }}
+
+<article class="article-card animate-fade-in" style="animation-delay: {{ $delay }}ms">
+    {{ if $page.Params.image }}
+    <div class="article-card-image">
+        <a href="{{ $page.RelPermalink }}">
+            <img src="{{ $page.Params.image }}" alt="{{ $page.Title }}" loading="lazy">
+            <div class="image-overlay"></div>
+        </a>
+        {{ with $page.Params.categories }}
+        {{ range first 1 . }}
+        <span class="article-category-badge">{{ . }}</span>
+        {{ end }}
+        {{ end }}
+    </div>
+    {{ end }}
+    
+    <div class="article-card-content">
+        <header class="article-card-header">
+            <h2 class="article-card-title">
+                <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+            </h2>
+            
+            <div class="article-card-meta">
+                <time class="article-date" datetime="{{ $page.Date.Format "2006-01-02" }}">
+                    <span class="meta-icon">◈</span>
+                    {{ $page.Date.Format "Jan 02, 2006" }}
+                </time>
+                
+                {{ if $page.Site.Params.article.readingTime }}
+                <span class="article-reading-time">
+                    <span class="meta-icon">▸</span>
+                    {{ $page.ReadingTime }} {{ i18n "minutes" }}
+                </span>
+                {{ end }}
+            </div>
+        </header>
+        
+        {{ if $page.Summary }}
+        <p class="article-card-summary">{{ $page.Summary | plainify | truncate 160 }}</p>
+        {{ end }}
+        
+        <footer class="article-card-footer">
+            {{ with $page.Params.tags }}
+            <div class="article-tags">
+                {{ range first 3 . }}
+                <a href="{{ "tags/" | relURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+            
+            <a href="{{ $page.RelPermalink }}" class="read-more">
+                <span>{{ i18n "readMore" }}</span>
+                <span class="arrow">→</span>
+            </a>
+        </footer>
+    </div>
+</article>

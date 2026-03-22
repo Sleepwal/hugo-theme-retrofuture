@@ -1,0 +1,38 @@
+<header class="site-header">
+    <div class="container header-container">
+        <a href="{{ "/" | relLangURL }}" class="site-brand">
+            <span class="brand-icon">◈</span>
+            <span class="brand-text">{{ .Site.Params.author | default .Site.Title }}</span>
+        </a>
+        
+        <button class="menu-toggle" id="menu-toggle" aria-label="{{ i18n `menuToggle` }}">
+            <span class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+        </button>
+        
+        <nav class="main-nav" id="main-nav">
+            {{ range .Site.Menus.main }}
+            <a href="{{ .URL | relLangURL }}" class="nav-link {{ if $.IsMenuCurrent `main` . }}active{{ end }}">
+                {{ .Name }}
+            </a>
+            {{ end }}
+        </nav>
+        
+        {{ if .Site.Params.features.search }}
+        <div class="header-search">
+            <form action="{{ "search" | relLangURL }}" method="get" class="search-form">
+                <input type="text" name="q" placeholder="{{ i18n `searchPlaceholder` }}" class="search-input" required>
+                <button type="submit" class="search-btn" aria-label="{{ i18n `search` }}">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </form>
+        </div>
+        {{ end }}
+    </div>
+</header>

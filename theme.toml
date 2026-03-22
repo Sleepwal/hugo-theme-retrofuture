@@ -1,0 +1,16 @@
+name = "Hugo Theme RetroFuture"
+license = "MIT"
+licenselink = "https://github.com/yourusername/hugo-theme-retrofuture/blob/main/LICENSE"
+description = "A Retro-Futuristic Hugo blog theme with neon aesthetics, CRT scanlines, and 20th-century future vision"
+homepage = "https://github.com/yourusername/hugo-theme-retrofuture"
+demosite = "https://example.com"
+
+tags = ["blog", "retro", "futuristic", "neon", "dark", "responsive", "search", "widgets"]
+
+features = ["search", "toc", "widgets", "dark-mode", "responsive", "multilingual"]
+
+min_version = "0.110.0"
+
+[author]
+  name = "RetroFuture Theme Author"
+  homepage = "https://example.com"

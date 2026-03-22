@@ -1,0 +1,29 @@
+<aside class="sidebar-content">
+    <div class="sidebar-section author-section">
+        {{ if .Site.Params.avatar }}
+        <div class="author-avatar">
+            <img src="{{ .Site.Params.avatar }}" alt="{{ .Site.Params.author }}">
+            <div class="avatar-border"></div>
+        </div>
+        {{ end }}
+        
+        <div class="author-info">
+            <h3 class="author-name">{{ .Site.Params.author | default "Author" }}</h3>
+            {{ with .Site.Params.description }}
+            <p class="author-bio">{{ . }}</p>
+            {{ end }}
+        </div>
+    </div>
+    
+    {{ if .Site.Taxonomies.categories }}
+    <div class="sidebar-section">
+        {{ partial "widget/categories.html" . }}
+    </div>
+    {{ end }}
+    
+    {{ if .Site.Taxonomies.tags }}
+    <div class="sidebar-section">
+        {{ partial "widget/tag-cloud.html" . }}
+    </div>
+    {{ end }}
+</aside>

@@ -1,0 +1,49 @@
+<header class="article-header">
+    {{ if .Params.categories }}
+    <div class="article-categories">
+        {{ range .Params.categories }}
+        <a href="{{ "categories/" | relURL }}{{ . | urlize }}" class="category-link">
+            <span class="category-icon">◈</span>
+            {{ . }}
+        </a>
+        {{ end }}
+    </div>
+    {{ end }}
+    
+    <h1 class="article-title">{{ .Title }}</h1>
+    
+    <div class="article-meta">
+        <div class="meta-item">
+            <span class="meta-icon">◈</span>
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 02, 2006" }}</time>
+        </div>
+        
+        {{ if .Site.Params.article.readingTime }}
+        <div class="meta-item">
+            <span class="meta-icon">▸</span>
+            <span>{{ .ReadingTime }} {{ i18n "minutes" }}</span>
+        </div>
+        {{ end }}
+        
+        {{ if .WordCount }}
+        <div class="meta-item">
+            <span class="meta-icon">▣</span>
+            <span>{{ .WordCount }} {{ i18n "words" }}</span>
+        </div>
+        {{ end }}
+        
+        {{ if .Params.author }}
+        <div class="meta-item">
+            <span class="meta-icon">◉</span>
+            <span>{{ .Params.author }}</span>
+        </div>
+        {{ end }}
+    </div>
+    
+    {{ if .Params.image }}
+    <div class="article-featured-image">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
+        <div class="image-border"></div>
+    </div>
+    {{ end }}
+</header>

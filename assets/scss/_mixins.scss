@@ -1,0 +1,105 @@
+@mixin neon-glow($color, $intensity: 1) {
+    text-shadow: 
+        0 0 5px rgba($color, 0.5 * $intensity),
+        0 0 10px rgba($color, 0.3 * $intensity),
+        0 0 20px rgba($color, 0.2 * $intensity),
+        0 0 40px rgba($color, 0.1 * $intensity);
+}
+
+@mixin neon-border($color, $width: 1px) {
+    border: $width solid $color;
+    box-shadow: 
+        0 0 5px rgba($color, 0.5),
+        0 0 10px rgba($color, 0.3),
+        inset 0 0 5px rgba($color, 0.1);
+}
+
+@mixin scanlines($opacity: 0.03) {
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, $opacity) 2px,
+        rgba(0, 0, 0, $opacity) 4px
+    );
+}
+
+@mixin crt-effect {
+    position: relative;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            rgba(18, 16, 16, 0) 50%,
+            rgba(0, 0, 0, 0.25) 50%
+        );
+        background-size: 100% 4px;
+        pointer-events: none;
+        z-index: 1;
+    }
+}
+
+@mixin hexagon($size) {
+    width: $size;
+    height: $size * 1.1547;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+@mixin glitch-text {
+    position: relative;
+    
+    &::before,
+    &::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    &::before {
+        left: 2px;
+        text-shadow: -2px 0 var(--glitch-color-1, #ff00ff);
+        clip: rect(44px, 450px, 56px, 0);
+        animation: glitch-anim 5s infinite linear alternate-reverse;
+    }
+    
+    &::after {
+        left: -2px;
+        text-shadow: -2px 0 var(--glitch-color-2, #00fff7);
+        clip: rect(44px, 450px, 56px, 0);
+        animation: glitch-anim2 5s infinite linear alternate-reverse;
+    }
+}
+
+@mixin card-base {
+    background: var(--card-background);
+    border: var(--card-border);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-glow);
+    transition: all 0.3s ease;
+    
+    &:hover {
+        box-shadow: var(--card-glow-hover);
+        transform: translateY(-2px);
+    }
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin truncate($lines: 2) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

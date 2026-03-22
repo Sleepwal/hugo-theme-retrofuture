@@ -1,0 +1,47 @@
+.home-header {
+    text-align: center;
+    padding: var(--spacing-2xl) 0;
+    margin-bottom: var(--spacing-xl);
+}
+
+.home-title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    @include neon-glow(var(--color-primary), 0.8);
+    
+    @include respond(md) {
+        font-size: 4rem;
+    }
+    
+    .glitch-text {
+        position: relative;
+        display: inline-block;
+        
+        &:hover {
+            animation: neon-flicker 0.5s linear;
+        }
+    }
+}
+
+.home-description {
+    font-size: 1.1rem;
+    color: var(--body-text-color-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.article-grid {
+    display: grid;
+    gap: var(--spacing-lg);
+    
+    @include respond(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include respond(xl) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

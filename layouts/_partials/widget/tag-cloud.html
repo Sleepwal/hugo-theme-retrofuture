@@ -1,0 +1,11 @@
+<div class="widget">
+    <h4 class="widget-title">
+        <span class="widget-icon">◈</span>
+        {{ i18n "tags" }}
+    </h4>
+    <div class="tag-cloud">
+        {{ range first 20 .Site.Taxonomies.tags.ByCount.Reverse }}
+        <a href="{{ .Page.RelPermalink }}" class="tag-cloud-item">{{ .Page.Title }}</a>
+        {{ end }}
+    </div>
+</div>

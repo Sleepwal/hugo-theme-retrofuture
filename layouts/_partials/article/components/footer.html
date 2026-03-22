@@ -1,0 +1,30 @@
+<footer class="article-footer">
+    {{ if .Params.tags }}
+    <div class="article-tags-section">
+        <h4 class="tags-title">{{ i18n "tags" }}</h4>
+        <div class="article-tags">
+            {{ range .Params.tags }}
+            <a href="{{ "tags/" | relURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+            {{ end }}
+        </div>
+    </div>
+    {{ end }}
+    
+    <nav class="article-nav">
+        {{ with .PrevInSection }}
+        <a href="{{ .RelPermalink }}" class="nav-link prev">
+            <span class="nav-label">{{ i18n "prevPost" }}</span>
+            <span class="nav-title">{{ .Title }}</span>
+            <span class="nav-arrow">←</span>
+        </a>
+        {{ end }}
+        
+        {{ with .NextInSection }}
+        <a href="{{ .RelPermalink }}" class="nav-link next">
+            <span class="nav-label">{{ i18n "nextPost" }}</span>
+            <span class="nav-title">{{ .Title }}</span>
+            <span class="nav-arrow">→</span>
+        </a>
+        {{ end }}
+    </nav>
+</footer>

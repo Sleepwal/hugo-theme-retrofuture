@@ -1,0 +1,32 @@
+[params]
+  author = "RetroFuture Blogger"
+  description = "A Retro-Futuristic Blog Powered by Hugo"
+  
+[article]
+  tableOfContents = true
+  readingTime = true
+  relatedContent = true
+
+[sidebar]
+  left = true
+  right = true
+
+[widgets]
+  enabled = true
+  sidebar = ["search", "categories", "tags"]
+
+[features]
+  darkMode = true
+  search = true
+
+[colors]
+  primary = "#00fff7"
+  secondary = "#ff00ff"
+  accent = "#ff9500"
+  background = "#0a0a1a"
+  surface = "#1a1a2e"
+
+[fonts]
+  display = "Orbitron"
+  body = "Space Mono"
+  code = "Share Tech Mono"

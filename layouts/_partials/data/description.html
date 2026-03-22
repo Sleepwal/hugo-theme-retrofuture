@@ -1,0 +1,9 @@
+{{ if .IsHome }}
+    {{ .Site.Params.description | default .Site.Title }}
+{{ else if .Description }}
+    {{ .Description }}
+{{ else if .Summary }}
+    {{ .Summary | plainify | truncate 160 }}
+{{ else }}
+    {{ .Site.Params.description | default .Site.Title }}
+{{ end }}

@@ -1,0 +1,31 @@
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="brand-icon">◈</span>
+                <span class="brand-text">{{ .Site.Params.author | default .Site.Title }}</span>
+            </div>
+            
+            <div class="footer-links">
+                {{ range .Site.Menus.main }}
+                <a href="{{ .URL | relLangURL }}" class="footer-link">{{ .Name }}</a>
+                {{ end }}
+            </div>
+            
+            <div class="footer-info">
+                <p class="copyright">
+                    © {{ now.Year }} {{ .Site.Params.author | default .Site.Title }}.
+                    {{ i18n "allRightsReserved" }}
+                </p>
+                <p class="powered-by">
+                    {{ i18n "poweredBy" }} <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
+                    | {{ i18n "theme" }} <a href="https://github.com/yourusername/hugo-theme-retrofuture" target="_blank" rel="noopener">RetroFuture</a>
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-decoration">
+            <div class="neon-line"></div>
+        </div>
+    </div>
+</footer>

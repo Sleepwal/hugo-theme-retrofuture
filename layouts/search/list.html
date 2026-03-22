@@ -1,0 +1,40 @@
+{{ define "body-class" }}search-page{{ end }}
+
+{{ define "main" }}
+<div class="search-page animate-fade-in">
+    <header class="search-header">
+        <h1 class="search-title">
+            <span class="title-icon">◈</span>
+            {{ i18n "search" }}
+        </h1>
+        
+        <form action="{{ "search" | relLangURL }}" method="get" class="search-form-large">
+            <input type="text" name="q" value="{{ .Query }}" placeholder="{{ i18n `searchPlaceholder` }}" class="search-input-large" required>
+            <button type="submit" class="search-submit">{{ i18n "search" }}</button>
+        </form>
+    </header>
+    
+    {{ if .Query }}
+    <div class="search-results">
+        <p class="results-info">
+            {{ i18n "searchResultsFor" }} <strong>"{{ .Query }}"</strong>
+        </p>
+        
+        {{ $results := .Site.RegularPages.Where "Title" "icontains" .Query }}
+        {{ if eq 0 (len $results) }}
+        {{ $results = .Site.RegularPages.Where "Content" "icontains" .Query }}
+        {{ end }}
+        
+        {{ if $results }}
+        <div class="article-grid">
+            {{ range $index, $page := $results }}
+            {{ partial "article-list/default.html" (dict "page" $page "index" $index) }}
+            {{ end }}
+        </div>
+        {{ else }}
+        <p class="no-results">{{ i18n "noSearchResults" }}</p>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+{{ end }}

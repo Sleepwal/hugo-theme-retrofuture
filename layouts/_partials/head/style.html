@@ -1,0 +1,8 @@
+{{ $scss := resources.Get "scss/style.scss" }}
+{{ if $scss }}
+    {{ $options := dict "targetPath" "css/style.css" "enableSourceMap" false }}
+    {{ $style := $scss | css.Sass $options | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{ else }}
+    {{ warnf "SCSS file not found: scss/style.scss" }}
+{{ end }}

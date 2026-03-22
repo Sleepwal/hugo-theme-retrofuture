@@ -1,0 +1,74 @@
+baseURL = "https://example.org/"
+languageCode = "en-us"
+title = "RetroFuture Blog"
+theme = "hugo-theme-retrofuture"
+
+[params]
+  author = "RetroFuture Blogger"
+  description = "A Retro-Futuristic Blog Powered by Hugo"
+  avatar = "/images/avatar.png"
+  
+  [params.colors]
+    primary = "#00fff7"
+    secondary = "#ff00ff"
+    accent = "#ff9500"
+    background = "#0a0a1a"
+    surface = "#1a1a2e"
+  
+  [params.fonts]
+    display = "Orbitron"
+    body = "Space Mono"
+    code = "Share Tech Mono"
+
+[params.article]
+  tableOfContents = true
+  readingTime = true
+  relatedContent = true
+
+[params.sidebar]
+  left = true
+  right = true
+
+[params.features]
+  darkMode = true
+  search = true
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+  
+  [[menu.main]]
+    identifier = "archives"
+    name = "Archives"
+    url = "/archives/"
+    weight = 2
+  
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
+  
+  [[menu.main]]
+    identifier = "categories"
+    name = "Categories"
+    url = "/categories/"
+    weight = 4
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
+  
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    style = "dracula"

@@ -1,0 +1,24 @@
+{{ $related := .Site.RegularPages.Related . | first 3 }}
+{{ with $related }}
+<div class="related-posts animate-fade-in">
+    <h3 class="related-title">
+        <span class="title-icon">◈</span>
+        {{ i18n "relatedPosts" }}
+    </h3>
+    <div class="related-grid">
+        {{ range . }}
+        <a href="{{ .RelPermalink }}" class="related-card">
+            {{ if .Params.image }}
+            <div class="related-image">
+                <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
+            </div>
+            {{ end }}
+            <div class="related-content">
+                <h4 class="related-card-title">{{ .Title }}</h4>
+                <time class="related-date">{{ .Date.Format "Jan 02, 2006" }}</time>
+            </div>
+        </a>
+        {{ end }}
+    </div>
+</div>
+{{ end }}
