@@ -184,4 +184,4 @@ Create `assets/scss/custom.scss` in your site:
 
 ## License
 
-MIT License - See [LICENSE](LICENSE) for details.
+GNU General Public License v3.0 - See [LICENSE](LICENSE) for details.
