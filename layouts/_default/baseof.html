@@ -23,7 +23,7 @@
             {{- block "main" . }}{{- end }}
         </main>
         
-        {{ if not .Params.hideSidebar }}
+        {{ if and (not .Params.hideSidebar) (ne .Kind "page") }}
         <aside class="right-sidebar sticky">
             {{ partial "sidebar/right.html" . }}
         </aside>
